@@ -12,6 +12,6 @@ class UserTest < ActiveSupport::TestCase
   
   test "name should be present" do
     @user.name = "     "
-    assert_not @user.valid?
+    assert @user.invalid?
   end
 end
