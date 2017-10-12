@@ -1,6 +1,7 @@
 # Ruby on Rails チュートリアルのサンプルアプリケーション
 
 [![Build Status](https://travis-ci.org/tkms0106/rails-tutorial-sampleapp.svg?branch=master)](https://travis-ci.org/tkms0106/rails-tutorial-sampleapp)
+[![codecov](https://codecov.io/gh/tkms0106/rails-tutorial-sampleapp/branch/master/graph/badge.svg)](https://codecov.io/gh/tkms0106/rails-tutorial-sampleapp)
 
 これは、次の教材で作られたサンプルアプリケーションです。   
 [*Ruby on Rails チュートリアル*](https://railstutorial.jp/)
