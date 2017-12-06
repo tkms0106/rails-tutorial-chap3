@@ -6,10 +6,11 @@ class UsersController < ApplicationController
   def index
     @users = User.where(activated: true).paginate(page: params[:page])
   end
-  
+
   def show
     @user = User.find(params[:id])
     redirect_to root_url and return unless @user.activated?
+    @microposts = @user.microposts.paginate(page: params[:page])
   end
 
   def new
@@ -26,7 +27,7 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
-  
+
   def edit
     @user = User.find(params[:id])
   end
@@ -53,9 +54,9 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :email, :password,
                                    :password_confirmation)
     end
-    
+
     # beforeアクション
-    
+
     # ログイン済みユーザーかどうか確認
     def logged_in_user
       unless logged_in?
@@ -65,7 +66,7 @@ class UsersController < ApplicationController
         redirect_to login_url
       end
     end
-    
+
     # 正しいユーザーかどうか確認
     def correct_user
       @user = User.find(params[:id])
