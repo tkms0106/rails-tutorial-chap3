@@ -38,7 +38,7 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_link contact_path
     assert_link login_path, 0
     assert_link users_path
-    assert_link user_path(@user.id), 3
+    assert_select "a[href=?]", user_path(@user.id)
     assert_link edit_user_path(@user.id)
     assert_link logout_path
   end
