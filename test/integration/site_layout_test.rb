@@ -42,4 +42,11 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_link edit_user_path(@user.id)
     assert_link logout_path
   end
+
+  test "statistics information when logged in" do
+    log_in_as @user
+    get root_path
+    assert_match @user.following.count.to_s, response.body
+    assert_match @user.followers.count.to_s, response.body
+  end
 end
